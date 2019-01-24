@@ -5,7 +5,8 @@
 
 void inputAndPrintInteger() {
 	cout << "Skriv inn et tall: ";
-	int input = 0; cin >> input;
+	int input = 0;
+	cin >> input;
 	cout << "Du skrev: " << input << "\n";
 }
 
@@ -30,7 +31,7 @@ bool IsOdd(int number) {
 }
 
 void printHumanReadableTime(int seconds) {
-	int minSek = 60, timeSek = pow(minSek,2);
+	int minSek = 60, timeSek = pow(minSek, 2);
 	int timer = seconds / timeSek;
 	int timeLeft = seconds - timer * timeSek;
 	int minutter = timeLeft / minSek;
@@ -122,7 +123,7 @@ void SolveQuadradicEquation() {
 	cin >> c;
 	PrintRealRoots(a, b, c);
 }
-	
+
 #pragma endregion
 
 
@@ -160,7 +161,7 @@ bool menyFunc() {
 		SolveQuadradicEquation();
 		break;
 	default:
-		cout << "Tast inn et tall mellom 0 og 3. Prøv igjen.\n";
+		cout << "Tast inn et tall mellom 0 og 5. Prøv igjen.\n";
 		break;
 	}
 	return true;
@@ -217,13 +218,13 @@ int main() {
 		//NOKtoEUR();
 	}
 
-	
+
 #pragma region Oppgave 3 - Menysystem
 	// a
 
-	//while(menyFunc()){}
+	while (menyFunc()) {}
 
-	Gangetabell(14, 14);
+	//Gangetabell(14, 14);
 
 #pragma endregion
 

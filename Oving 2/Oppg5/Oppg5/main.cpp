@@ -15,7 +15,7 @@ vector<int> CalculateSeries(double loan, double years, double interest) {
 }
 
 vector<int> CalculateAnnuity(double loan, double years, double interest) {
-	int total = loan * ((interest / 100) /( 1 - pow(1 + interest / 100, -years)));
+	int total = loan * ((interest / 100) / (1 - pow(1 + interest / 100, -years)));
 	vector<int> payments(10);
 	for (int i = 0; i < years; i++) {
 		payments[i] = total;
