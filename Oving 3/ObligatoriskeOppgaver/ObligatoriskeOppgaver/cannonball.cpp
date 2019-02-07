@@ -52,7 +52,7 @@ void getUserInput(double& theta, double& absVelocity)
 
 double degToRad(double deg)
 {
-	return deg * M_PI / 180;
+	return deg * M_PI / 180; 
 }
 
 double getVelocityX(double theta, double absVelocity)
