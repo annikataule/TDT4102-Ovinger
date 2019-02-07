@@ -1,5 +1,5 @@
 #include "std_lib_facilities.h"
-#include "Card.h"
+#include "CardDeck.h"
 
 int main(){
 
@@ -26,10 +26,25 @@ int main(){
 
 
 #pragma endregion
-
+	/*
 	Card c = Card(Suit::clubs, Rank::two);
 
 	cout << c.toString() << endl;
+	*/
 
+	CardDeck cD = CardDeck();
+
+	cD.print();
+
+	cD.shuffle();
+	cD.printShort();
+
+	for (int i = 0; i < 52; i++)
+	{
+		Card c = cD.drawCard();
+		cout << c.toString() << endl;
+	}
+
+	keep_window_open();
 	return 0;
 }
