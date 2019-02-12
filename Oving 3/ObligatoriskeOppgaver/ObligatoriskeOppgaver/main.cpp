@@ -30,7 +30,11 @@ int main(){
 
 #pragma region Game - Task 5d
 
-	playTargetPractice(10);
+	int rounds = 10;
+
+	playTargetPractice(rounds);
+
+	
 
 #pragma endregion
 

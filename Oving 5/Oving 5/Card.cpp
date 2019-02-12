@@ -5,13 +5,10 @@ map<Suit, string> suitNames = { {Suit::clubs, "Clubs" },
 								{Suit::hearts, "Hearts"},
 								{Suit::spades, "Spades"} };
 
-
-
 string suitToString(Suit s)
 {
 	return suitNames[s];
 }
-
 
 map<Rank, string> rankNames = { {Rank::two, "Two" },
 								{Rank::three, "Three"},
@@ -32,7 +29,6 @@ string rankToString(Rank r)
 	return rankNames[r];
 }
 
-
 string toString(CardStruct card)
 {
 	return rankToString(card.rank) + " of " + suitToString(card.suit);
@@ -45,6 +41,8 @@ string toStringShort(CardStruct card)
 	return suit.at(0) + rank;
 
 }
+
+#pragma region Card - Class
 
 Card::Card()
 {
@@ -77,3 +75,5 @@ string Card::toStringShort()
 	else
 		return "Invalid card";
 }
+
+#pragma endregion
