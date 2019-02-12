@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{b258150f-f59c-4db0-ad01-1e7ad3b7b095}</ProjectGuid>
-    <RootNamespace>Oving5</RootNamespace>
+    <ProjectGuid>{94a3119b-fc94-41de-abd1-851de52f3f02}</ProjectGuid>
+    <RootNamespace>Oving_6</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -135,6 +135,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Task1.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="grunnlov.txt" />
+    <Text Include="grunnlov_iso-latin-1.txt" />
+    <Text Include="temperatures.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Task1.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
