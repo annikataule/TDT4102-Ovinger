@@ -1,4 +1,5 @@
 #include "Task1.h"
+#include "std_lib_facilities.h"
 
 void cinToFile(string path)
 {
@@ -22,27 +23,28 @@ void cinToFile(string path)
 void addLineNumber(string inputPath, string outputPath)
 {
 	string line;
-	ifstream ifs{ inputPath };
+	ifstream ifs{ inputPath }; // Try opening file
 	if (!ifs)
 		error("Cant open file ", inputPath);
 	else 
 	{
-		vector<string> lines;
-		while (ifs.eof())
+		vector<string> lines; //Create vector of lines
+		while (!ifs.eof()) // Read all the lines
 		{
+			line.clear();
 			getline(ifs, line);
 			cout << line << endl;
 			lines.push_back(line);
 		}
 		ifs.close();
-		ofstream ofs{ outputPath };
-		if (!ifs || !ofs)
+		ofstream ofs{ outputPath }; // Prepeare to output to file
+		if (!ofs)
 			error("Cant open file ", outputPath);
 		else
 		{
 			for (int i = 0; i < lines.size(); ++i)
 			{
-				ofs << setw(lines.size()) << i + 1 << " " << lines[i] << endl;
+				ofs << setw(to_string(lines.size()).size()) << i + 1 << " " << lines[i] << endl; // Write all lines with linenumer with a specific width
 			}
 		}
 		
