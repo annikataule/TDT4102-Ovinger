@@ -1,5 +1,6 @@
 #include "Card.h"
 
+
 map<Suit, string> suitNames = { {Suit::clubs, "Clubs" },
 								{Suit::diamonds, "Diamonds"},
 								{Suit::hearts, "Hearts"},
@@ -58,6 +59,14 @@ Card::Card(Suit suit, Rank rank)
 
 inline Suit Card::suit() { return s; }
 inline Rank Card::rank() { return r; }
+int Card::suitVal()
+{
+	return int(s);
+}
+int Card::rankVal()
+{
+	return int(r);
+}
 inline bool Card::isValid() { return valid; }
 
 string Card::toString()
