@@ -6,7 +6,7 @@ class CourseCatalog
 public:
 	CourseCatalog();
 	friend ostream& operator<<(ostream&, const CourseCatalog&);
-	void addCourse(string code, string name);
+	void addCourse(const string code, string name);
 	void removeCourse(string code);
 	string getCourse(string code);
 private:

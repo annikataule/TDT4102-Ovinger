@@ -2,6 +2,7 @@
 #include "Task1.h"
 #include "Task2.h"
 #include "Task3.h"
+#include "Task4.h"
 
 int main(){
 
@@ -10,7 +11,28 @@ int main(){
 
 	//addLineNumber("inn.txt", "out.txt");
 
-	countCharInTxt("grunnlov.txt");
+	//countCharInTxt("grunnlov.txt");
+
+	
+	CourseCatalog courses = CourseCatalog();
+
+	courses.addCourse("TDT4100", "Informasjonsteknologi grunnkurs");
+	courses.addCourse("TDT4102", "Prosedyre- og objektorientert programmering");
+	courses.addCourse("TMA4100", "Matematikk 1");
+	courses.addCourse("TDT4102", "C++");
+
+	// map.insert funker ikke
+
+
+	cout << courses;
+
+	vector<Temps> temps;
+	string file = "temperatures.txt";
+
+	readTempsFromFile(temps, file);
+
+	cout << temps;
+
 
 	return 0;
 }
