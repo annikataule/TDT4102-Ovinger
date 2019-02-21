@@ -1,26 +1,21 @@
  1 a
- 2 b
- 3 c
- 4 d
- 5 e
- 6 f
- 7 g
+ 2 d
+ 3 sdf
+ 4 sad
+ 5 fd
+ 6 dsf
+ 7 ds
  8 h
- 9 i
-10 j
-11 k
-12 l
-13 m
-14 n
-15 o
-16 p
-17 q
-18 r
-19 s
-20 t
-21 u
-22 v
-23 w
-24 x
-25 y
-26 z
+ 9 dfh
+10 sd
+11 fh
+12 fd
+13 h
+14 fdg
+15 h
+16 fdgh
+17 df
+18 h
+19 fdh
+20 fdh
+21 

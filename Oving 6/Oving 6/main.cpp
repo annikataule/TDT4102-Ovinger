@@ -4,6 +4,8 @@
 #include "Task3.h"
 #include "Task4.h"
 
+
+
 int main(){
 
 	// Your code here
@@ -13,19 +15,26 @@ int main(){
 
 	//countCharInTxt("grunnlov.txt");
 
+	/*
 	
 	CourseCatalog courses = CourseCatalog();
 
 	courses.addCourse("TDT4100", "Informasjonsteknologi grunnkurs");
 	courses.addCourse("TDT4102", "Prosedyre- og objektorientert programmering");
 	courses.addCourse("TMA4100", "Matematikk 1");
-	courses.addCourse("TDT4102", "C++");
+
+	cout << courses;
+
+	courses.addCourse("TDT4103", "C++");
+
+	*/
 
 	// map.insert funker ikke
 
 
-	cout << courses;
+	//cout << courses;
 
+	
 	vector<Temps> temps;
 	string file = "temperatures.txt";
 
@@ -33,6 +42,7 @@ int main(){
 
 	cout << temps;
 
+	
 
 	return 0;
 }

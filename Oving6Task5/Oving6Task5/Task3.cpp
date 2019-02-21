@@ -6,8 +6,7 @@ CourseCatalog::CourseCatalog()
 
 void CourseCatalog::addCourse(string code, string name)
 {
-	//courses[code] = name;
-	courses.emplace(code, name);
+	courses[code] = name;
 }
 
 void CourseCatalog::removeCourse(string code)
