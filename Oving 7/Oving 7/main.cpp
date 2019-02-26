@@ -4,7 +4,7 @@
 // Size of window and emoji radius
 constexpr int xmax = 1000;
 constexpr int ymax = 600;
-constexpr int emojiRadius = 50;
+constexpr int emojiRadius = 100;
 
 int main()
 {
@@ -13,9 +13,9 @@ int main()
 	const Point tl{100, 100};
 	const string win_label{"Emoji factory"};
 	Simple_window win{tl, xmax, ymax, win_label};
-	EmptyFace eFace(Point{ 100, 100 }, emojiRadius);
+	AngryFace face(Point{ 200, 200 }, emojiRadius);
 
-	eFace.attach_to(win);
+	face.attach_to(win);
 
 	/* TODO:
 	 *  - initialize emojis

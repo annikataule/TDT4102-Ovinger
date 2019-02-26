@@ -13,8 +13,6 @@
 
 using namespace Graph_lib;
 
-// An abstract class. Concrete classes derived from this base class
-// has to implement the member function attach_to().
 class Emoji
 {
 public:
@@ -22,18 +20,11 @@ public:
 	Emoji(const Emoji&) = delete;
 	Emoji& operator=(const Emoji&) = delete;
 
-	// Deleting the copy constructor also deletes the default constructor.
-	// Emoji needs a default constructor.
 	Emoji() {}
-	// Emoji() = default; // is an alternative way of achieving the same.
 
-	// The pure virtual function that has to be overriden for a deriving class
-	// to be instantiable. Every class deriving from Emoji is supposed to
-	// attach all its Shapes to a window. This makes the class abstract.
 	virtual void attach_to(Graph_lib::Window&) = 0;
 
-	// Relevant because Vector_ref can own Emojis and automatically cleans up.
-	// Subject will be visited later in the course.
+
 	virtual ~Emoji() {}
 };
 
@@ -41,30 +32,72 @@ public:
 // An abstract class.
 class Face : public Emoji
 {
-	/* TODO:
-	 *  - add shapes (private)
-	 *  - make the class abstract
-	 **/
-
-	Circle faceMask;
-
 public:
+	Face(const Face&) = delete;
+	Face& operator=(const Face&) = delete;
+	virtual ~Face() {}
+
 	Face(Point c, int r);
 	void attach_to(Graph_lib::Window& win) override;
+
+private:
+	Circle faceMask;
 };
 
-/* TODO:
- *  - declare more emojis.
- **/
 
 class EmptyFace  : public Face
 {
 public:
-	EmptyFace(Point p, int r, bool upSideDown = false);
+	EmptyFace(Point p, int r);
 	void attach_to(Graph_lib::Window& win) override;
 private:
-	int offset;
-	int eyeR;
-	Point left, right;
-	Vector_ref<Circle> eyes;
+	Circle leftEye;
+	Circle rightEye;
+};
+
+class SmileyFace : public EmptyFace
+{
+public:
+	SmileyFace(Point p, int r);
+	virtual ~SmileyFace() {};
+	void attach_to(Graph_lib::Window& win) override;
+private:
+	Arc Smile;
+};
+
+
+class SadFace : public EmptyFace
+{
+public:
+	SadFace(Point p, int r);
+	virtual ~SadFace() {};
+	void attach_to(Graph_lib::Window& win) override;
+private:
+	Arc Sad;
+};
+
+class AngryFace : public EmptyFace
+{
+public:
+	AngryFace(Point p, int r);
+	virtual ~AngryFace() {};
+	void attach_to(Graph_lib::Window& win) override;
+private:
+	int x1, y1;
+	int x2, y2;
+	Arc AngryOver;
+	Line leftBrow, rightBrow;
+};
+
+class WinkingFace : public Face
+{
+public:
+	WinkingFace(Point p, int r);
+	void attach_to(Graph_lib::Window& win) override;
+private:
+	Circle leftEye;
+	Arc smile;
+	Open_polyline wink;
+	int x1,x2;
+	int y1, y2, y3;
 };
