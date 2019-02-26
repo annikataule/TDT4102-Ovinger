@@ -19,10 +19,8 @@ void Face::attach_to(Graph_lib::Window& win)
 #pragma region EmptyFace
 
 EmptyFace::EmptyFace(Point p, int r) : Face(p, r),
-//leftEye{ Point{ p.x - int(sqrt(2) / 4 * r), p.y - int(sqrt(2) / 4 * r) }, r / 10 },
-//rightEye{ Point { p.x + int(sqrt(2) / 4 * r), p.y - int(sqrt(2) / 4 * r) }, r / 10 }
-	leftEye{ Point{ p.x - r / 2, p.y - r / 2 }, r / 10 },
-	rightEye{ Point { p.x + r / 2, p.y - r / 2 }, r / 10 }
+	leftEye{ Point{ p.x - r / 2, p.y - r / 8 }, r / 10 },
+	rightEye{ Point { p.x + r / 2, p.y - r / 8 }, r / 10 }
 {
 
 	leftEye.set_fill_color(Color::black);
@@ -76,6 +74,7 @@ void SadFace::attach_to(Graph_lib::Window & win)
 
 #pragma endregion
 
+
 #pragma region AngryFace
 
 AngryFace::AngryFace(Point p, int r) : EmptyFace{ p,r }, 
@@ -103,6 +102,7 @@ void AngryFace::attach_to(Graph_lib::Window & win)
 }
 
 #pragma endregion
+
 
 #pragma region WinkingFace
 
@@ -136,3 +136,26 @@ void WinkingFace::attach_to(Graph_lib::Window & win)
 
 #pragma endregion
 
+AwkwardFace::AwkwardFace(Point p, int r) : Face{p, r},
+	leftEye{Point{p.x - 4 * r / 5, p.y}, r / 10},
+	rightEye{Point{p.x + 4 * r / 5, p.y}, r / 10}
+{
+	leftEye.set_fill_color(Color::black);
+	rightEye.set_fill_color(Color::black);
+
+	leftEye.set_color(Color::black);
+	rightEye.set_color(Color::black);
+
+	mouth.add(Point{ p.x - r / 2, p.y + r / 25 });
+	mouth.add(Point{ p.x + r / 2, p.y + r / 25 });
+	mouth.set_color(Color::black);
+	mouth.set_style(Line_style(Line_style::solid, 3));
+}
+
+void AwkwardFace::attach_to(Graph_lib::Window & win)
+{
+	Face::attach_to(win);
+	win.attach(leftEye);
+	win.attach(rightEye);
+	win.attach(mouth);
+}

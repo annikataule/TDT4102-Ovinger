@@ -101,3 +101,13 @@ private:
 	int x1,x2;
 	int y1, y2, y3;
 };
+
+class AwkwardFace : public Face
+{
+public:
+	AwkwardFace(Point p, int r);
+	void attach_to(Graph_lib::Window& win) override;
+private:
+	Circle leftEye, rightEye;
+	Open_polyline mouth;
+};
