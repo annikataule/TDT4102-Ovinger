@@ -22,11 +22,13 @@
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Meeting.cpp" />
+    <ClCompile Include="MeetingWindow.cpp" />
     <ClCompile Include="Person.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Car.h" />
     <ClInclude Include="Meeting.h" />
+    <ClInclude Include="MeetingWindow.h" />
     <ClInclude Include="Person.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -5,18 +5,10 @@
 
 enum class Campus
 {
-	trondheim,
-	ålesund,
-	gjøvik,
-
-	First = trondheim,
-	Last = gjøvik
+	Trondheim,
+	Ålesund,
+	Gjøvik
 };
-
-Campus begin(Campus c);
-Campus end(Campus c);
-Campus operator++(Campus& x);
-Campus operator*(Campus c);
 
 ostream& operator<<(ostream& os, const Campus& c);
 
@@ -26,22 +18,45 @@ class Meeting
 	int day;
 	int startTime;
 	int endTime;
-	Campus location;
-	string subject;
-	const Person* leader;
-	set<const Person*> participants;
-public:
-	Meeting();
 
+	Campus location;
+
+	string subject;
+
+	const Person* leader;
+
+	set<const Person*> participants;
+
+	static set<const Meeting*> meetings;
+
+public:
+	Meeting(int d, int sT, int eT, Campus loc, string sub, Person* lead);
+	
 	int getDay() const;
 	int getStartTime() const;
 	int getEndTime() const;
+
 	Campus getLocation() const;
+
 	string getSubject() const;
+
 	const Person* getLeader() const;
 
-	virtual ~Meeting();
+	void addParticipant(Person* person);
+
+	set<const Person*> getParticipants() const;
+	vector<string> getParticipantList() const;
+
+	vector<const Person*> findPotentialCoDriving() const;
+
+	~Meeting();
 };
+
+ostream& operator<<(ostream& os, const Meeting& m);
+
+
+
+
 
 
 

@@ -27,6 +27,9 @@
     <ClCompile Include="Meeting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MeetingWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Car.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Meeting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MeetingWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

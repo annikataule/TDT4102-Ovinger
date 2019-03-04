@@ -3,8 +3,12 @@
 
 
 
-Meeting::Meeting()
+
+Meeting::Meeting(int d, int sT, int eT, Campus loc, string sub, Person * lead) :
+	day{ d }, startTime{ sT }, endTime{ eT }, location{ loc }, subject{ sub }, leader{ lead }
 {
+	addParticipant(lead);
+	meetings.emplace(this);
 }
 
 int Meeting::getDay() const
@@ -37,36 +41,84 @@ const Person* Meeting::getLeader() const
 	return leader;
 }
 
-
-Meeting::~Meeting()
+void Meeting::addParticipant(Person * person)
 {
+	participants.emplace(person);
 }
 
-Campus begin(Campus c)
+set<const Person*> Meeting::getParticipants() const
 {
-	return Campus::First;
+	return participants;
+
 }
 
-Campus end(Campus c)
+vector<string> Meeting::getParticipantList() const
 {
-	return Campus::Last;
+	vector<string> names;
+	for (auto p : participants) 
+	{
+		names.push_back(p->getName());
+	}
+	return names;
 }
 
-Campus operator++(Campus& x) {
-	return x = (Campus)(std::underlying_type<Campus>::type(x) + 1);
-}
+vector<const Person*> Meeting::findPotentialCoDriving() const
+{
+	vector<const Person*> drivers;
 
-Campus operator*(Campus c) {
-	return c;
+	for (const auto m : meetings)
+	{
+		if (m->getLocation() == this->location) {
+			if (m->getDay() == this->day &&
+				abs(m->getStartTime() - this->startTime) <= 100 &&
+				abs(m->getEndTime() - this->endTime) <= 100)
+			{
+				for (const auto p : m->getParticipants()) {
+					if (p->hasAvalibleSeats())
+						drivers.push_back(p);
+				}
+			}
+		}
+		
+	}
+	return drivers;
 }
-
 
 ostream & operator<<(ostream & os, const Campus & c)
 {
-
-	//string campus;
-	for (auto city : c) {
-		os << city << endl;
+	switch (c)
+	{
+	case Campus::Trondheim: os << "Trondheim";
+		break;
+	case Campus::Ålesund: os << "Ålesund";
+		break;
+	case Campus::Gjøvik: os << "Gjøvik";
+		break;
 	}
 	return os;
+}
+
+ostream& operator<<(ostream & os, const Meeting & m)
+{
+	os << "Subject: " << m.getSubject() << endl;
+	os << "Location: " << m.getLocation() << endl;
+	os << "Starttime: " << m.getStartTime() << endl;
+	os << "Endtime: " << m.getEndTime() << endl;
+	os << "Leader: " << m.getLeader()->getName() << endl;
+	os << "Participants: " << endl;
+
+	for (auto p : m.getParticipantList())
+	{
+		os << p << endl;
+	}
+	return os;
+}
+
+set<const Meeting*> Meeting::meetings;
+
+
+
+Meeting::~Meeting()
+{
+	meetings.erase(this);
 }
