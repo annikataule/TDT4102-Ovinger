@@ -3,7 +3,6 @@
 #include "Graph.h"
 #include "MeetingWindow.h"
 
-#include "Meeting.h"
 
 // The following pragma turns off the console
 //#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")

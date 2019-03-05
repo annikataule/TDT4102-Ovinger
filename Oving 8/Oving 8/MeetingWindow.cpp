@@ -34,6 +34,3 @@ void MeetingWindow::newPers()
 	redraw();
 }
 
-MeetingWindow::~MeetingWindow()
-{
-}
