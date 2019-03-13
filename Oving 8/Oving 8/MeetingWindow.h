@@ -48,6 +48,6 @@ public:
 
 
 
-	virtual ~MeetingWindow() { };
+	//~MeetingWindow();
 };
 

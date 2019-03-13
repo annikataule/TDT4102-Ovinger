@@ -31,6 +31,21 @@ void MeetingWindow::newPers()
 {
 	cout << name.get_string() << " --- " << email.get_string() << endl;
 	people.push_back(new Person{ name.get_string(), email.get_string() });
-	redraw();
+	//redraw();
 }
+/*
+MeetingWindow::~MeetingWindow()
+{
+	/*
+	for (Person* p : people)
+	{
+		delete p;
+	}
+
+	for (Vector_ref<Person>::iterator it = people.begin(); it != people.end(); ++it)
+	{
+		delete (*it);
+	}
+
+}*/
 
