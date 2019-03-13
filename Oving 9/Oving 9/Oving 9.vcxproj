@@ -151,11 +151,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Dummy.h" />
     <ClInclude Include="Fibonacci.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Dummy.cpp" />
     <ClCompile Include="Fibonacci.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Oving 9.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
